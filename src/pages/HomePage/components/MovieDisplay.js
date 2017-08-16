@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import styled from 'styled-components';
+import MovieDescription from './MovieDescription';
 
 const MovieContainer = styled.div`
   position: relative;
@@ -40,11 +41,6 @@ const MovieTime = styled.span`
   font-size: 14px;
 `;
 
-const MovieDescription = styled.p`
-  color: #0f0f0f;
-  font-size: 12px;
-`;
-
 const MovieDisplay = ({ movie }) => {
   const { title, poster_path, overview, id, release_date, backdrop_path } = movie;
   const bg = `https://image.tmdb.org/t/p/w300${backdrop_path}`;
@@ -61,9 +57,8 @@ const MovieDisplay = ({ movie }) => {
               {release_date}
             </MovieTime>
           </MovieTitleSection>
-          <MovieDescription>
-            {overview}
-          </MovieDescription>
+          <MovieDescription height={120} description={overview} />
+
         </MovieInfo>
       </Movie>
     </MovieContainer>
